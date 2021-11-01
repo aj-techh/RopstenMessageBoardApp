@@ -9,25 +9,13 @@ function App() {
   const { Moralis, authenticate, isAuthenticated, logout, user, enableWeb3, Web3 } = useMoralis();
   const global = { Moralis, authenticate, isAuthenticated, logout, user, enableWeb3, Web3 };
 
-  
-  // if(isAuthenticated){
-  //   //if user is logged in
-  //   return(
-  //     <>
-  //       <PageNav global={global} />
-        
-  //     </>
-  //   )
-  // }else{
-  //   //if no user is logged in
-  //   return (
-  //     <>
-  //       <PageNav global={global} />
-  //       <WarningSection />
-  //       <LandingPage global={global}/>
-  //     </>
-  //   );
-  // }
+  return (
+    <>
+      <PageNav global={global} />
+      <WarningSection />
+      {isAuthenticated? <Dashboard global={global} />:<LandingPage global={global}/>}
+    </>
+  )
 }
 
 export default App;
