@@ -23,6 +23,12 @@ function App() {
         <Route path="/" element={
           <>
             <PageNav global={global} />
+            <LandingPage />
+          </>
+        }/>
+        <Route path="/my-messages" element={
+          <>
+            <PageNav global={global} />
             <Dashboard global={global} />
           </>
         }/>

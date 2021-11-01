@@ -8,18 +8,18 @@ const PageNav = (props) => {
     return(
         <Navbar bg='dark' variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand>Message Board</Navbar.Brand>
+                <Link to="/"><Navbar.Brand>Message Board</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="navbarLinks"/>
                 <Navbar.Collapse id="navbarLinks">
                     {props.global.isAuthenticated?
                         <>
                             <Nav className="me-auto">
-                                <Nav.Link><Link to="/" >My Messages</Link></Nav.Link>
+                                <Nav.Link><Link to="/my-messages" >My Messages</Link></Nav.Link>
                                 <Nav.Link><Link to="/message-boards">Message Boards</Link></Nav.Link>
                             </Nav>
                             <Nav>
                                 <Navbar.Text className="px-1">{props.global.user.attributes.ethAddress}</Navbar.Text>
-                                <Button variant="secondary" onClick={props.global.logout}>Log Out</Button>
+                                <Link to="/"><Button variant="secondary" onClick={props.global.logout}>Log Out</Button></Link>
                             </Nav>
                         </>
                         :

@@ -1,13 +1,25 @@
-import React, { useState } from "react";
-import { Button, Container, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import FlatList from "flatlist-react";
 import MessageBoardAppInfo from '../../ContractInfo.json';
 import LandingPage from './LandingPage';
 import { useParams } from 'react-router';
+import WriteMessagesScreen from "./WriteMessagesScreen";
+import MessageBoardsInfo from '../../MessageBoardsInfo.json';
+import WriteMessagesScreenBoard from "./WriteMessagesScreenBoard";
 
 const MessageBoardDisplayScreen = (props) => {
     const [Messages, setMessages] = useState([]);
-    const {boardName:id} = useParams(); 
+    const [boardName, setBoardName] = useState('');
+    const {id} = useParams(); 
+    // let boardName;
+
+    useEffect(()=>{
+      for(let i = 0; i < MessageBoardsInfo.length; i++){
+        if(id==MessageBoardsInfo[i].address){setBoardName(MessageBoardsInfo[i].name)}
+        console.log(boardName);
+      }
+    },[])
 
     if(props.global.isAuthenticated){
         props.global.Moralis.enableWeb3();
@@ -16,9 +28,9 @@ const MessageBoardDisplayScreen = (props) => {
     
         const MessageBoardAppContract = new web3.eth.Contract(MessageBoardAppInfo.abi, MessageBoardAppInfo.address);
         const getMessages = async ()=>{
-            let NoOf = await MessageBoardAppContract.methods.returnNoOfMsgs(props.global.user.attributes.ethAddress).call();
+            let NoOf = await MessageBoardAppContract.methods.returnNoOfMsgs(id).call();
             for(let i = 0; i < NoOf; i++){
-              let pulledMsg = await MessageBoardAppContract.methods.returnMessages(props.global.user.attributes.ethAddress, i).call();
+              let pulledMsg = await MessageBoardAppContract.methods.returnMessages(id, i).call();
               userMessages.push({from:pulledMsg[0],msg:pulledMsg[1]})
             }
             setMessages(userMessages);
@@ -32,17 +44,30 @@ const MessageBoardDisplayScreen = (props) => {
                 </li>
             )
         }
+
     
         return(
-            <Container style={styles.messageScreen}>
-              <Row>
-                <Button onClick={()=>getMessages()}>Refresh</Button>
+          <Container fluid className="d-grid">
+              <Row className="mx-auto">
+                <h2>{boardName}</h2>
               </Row>
-                <Row style={styles.flatlistContainer}>
-                    <FlatList
-                    list={Messages}
-                    renderItem={renderMessage}
-                    />
+                <Row className="py-2">
+                    <Col md={6} xs={12}>
+                      <Container style={styles.messageScreen}>
+                        <Row>
+                          <Button onClick={()=>getMessages()}>Refresh</Button>
+                        </Row>
+                          <Row style={styles.flatlistContainer}>
+                              <FlatList
+                              list={Messages}
+                              renderItem={renderMessage}
+                              />
+                          </Row>
+                      </Container>
+                    </Col>
+                    <Col md={6} xs={12}>
+                        <WriteMessagesScreenBoard global={props.global} id={id}/>
+                    </Col>
                 </Row>
             </Container>
         )

@@ -1,4 +1,12 @@
-{
-    "name": "",
-    "address": ""
-}
+[
+    {
+        "name": "React Board",
+        "description": "A message board to discuss React topics",
+        "address": "0x3371A050611f357Bf5524060D44aa96ac0b61901"
+    },
+    {
+        "name": "Moralis Board",
+        "description": "A message board to discuss Moralis Topics",
+        "address": "0x5414E85c23e26f28fe82Ef3253140844A99b6395"
+    }
+]
