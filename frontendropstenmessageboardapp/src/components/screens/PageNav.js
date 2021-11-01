@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container, Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const PageNav = (props) => {
     // console.log(props.global.user.attributes.ethAddress);
@@ -13,8 +14,8 @@ const PageNav = (props) => {
                     {props.global.isAuthenticated?
                         <>
                             <Nav className="me-auto">
-                                <Nav.Link>My Messages</Nav.Link>
-                                <Nav.Link>Message Boards</Nav.Link>
+                                <Nav.Link><Link to="/" >My Messages</Link></Nav.Link>
+                                <Nav.Link><Link to="/message-boards">Message Boards</Link></Nav.Link>
                             </Nav>
                             <Nav>
                                 <Navbar.Text className="px-1">{props.global.user.attributes.ethAddress}</Navbar.Text>

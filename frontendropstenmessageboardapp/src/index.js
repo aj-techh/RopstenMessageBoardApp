@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { MoralisProvider } from 'react-moralis';
 // import * as serviceWorker from './s'
@@ -11,11 +11,11 @@ const serverURl = 'https://mz7b7tyttewj.usemoralis.com:2053/server';
 
 ReactDOM.render(
   <MoralisProvider appId={appId} serverUrl={serverURl}>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
   </MoralisProvider>,
   document.getElementById('root')
 );
