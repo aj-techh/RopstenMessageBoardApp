@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useMoralis } from 'react-moralis';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { Redirect } from 'react-router';
-import WarningSection from './components/components/WarningSection';
 import Dashboard from './components/screens/Dashboard';
 import LandingPage from './components/screens/LandingPage';
 import MessageBoardScreen from './components/screens/MessageBoardsScreen';

@@ -4,7 +4,6 @@ import FlatList from "flatlist-react";
 import MessageBoardAppInfo from '../../ContractInfo.json';
 import LandingPage from './LandingPage';
 import { useParams } from 'react-router';
-import WriteMessagesScreen from "./WriteMessagesScreen";
 import MessageBoardsInfo from '../../MessageBoardsInfo.json';
 import WriteMessagesScreenBoard from "./WriteMessagesScreenBoard";
 
@@ -16,10 +15,10 @@ const MessageBoardDisplayScreen = (props) => {
 
     useEffect(()=>{
       for(let i = 0; i < MessageBoardsInfo.length; i++){
-        if(id==MessageBoardsInfo[i].address){setBoardName(MessageBoardsInfo[i].name)}
+        if(id===MessageBoardsInfo[i].address){setBoardName(MessageBoardsInfo[i].name)}
         console.log(boardName);
       }
-    },[])
+    },[id, boardName])
 
     if(props.global.isAuthenticated){
         props.global.Moralis.enableWeb3();
