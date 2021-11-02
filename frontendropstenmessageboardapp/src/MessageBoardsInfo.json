@@ -8,5 +8,10 @@
         "name": "Moralis Board",
         "description": "A message board to discuss Moralis Topics",
         "address": "0x5414E85c23e26f28fe82Ef3253140844A99b6395"
+    },
+    {
+        "name": "Crypto Board",
+        "description": "A message board to discuss Crypto Topics",
+        "address": "0x3779AA461Cf3515a55f1aeAd83a4cd43dEB349a2"
     }
 ]
