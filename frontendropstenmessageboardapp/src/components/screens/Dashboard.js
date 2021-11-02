@@ -11,10 +11,10 @@ const Dashboard = (props) => {
         return(
             <Container fluid className="d-grid">
                 <Row className="py-2">
-                    <Col md={6} xs={12}>
+                    <Col md={8} xs={12}>
                         <SelectMessagesScreen  global={props.global} />
                     </Col>
-                    <Col md={6} xs={12}>
+                    <Col md={4} xs={12}>
                         <WriteMessagesScreen global={props.global} />
                     </Col>
                 </Row>
