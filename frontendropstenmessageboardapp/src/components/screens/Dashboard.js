@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom'
 import LandingPage from './LandingPage';
 import SelectMessagesScreen from './SelectMessagesScreen';
 import WriteMessagesScreen from './WriteMessagesScreen';
