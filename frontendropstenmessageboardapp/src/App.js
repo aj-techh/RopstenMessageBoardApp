@@ -5,7 +5,6 @@ import Dashboard from './components/screens/Dashboard';
 import LandingPage from './components/screens/LandingPage';
 import MessageBoardScreen from './components/screens/MessageBoardsScreen';
 import PageNav from './components/screens/PageNav';
-import { Container } from 'postcss';
 import MessageBoardDisplayScreen from './components/screens/MessageBoardDisplayScreen';
 
 function App() {
@@ -43,9 +42,9 @@ function App() {
           </>
         }/>
         <Route path="*" element={
-          <Container>
+          // <Container>
             <span>Not Found 404</span>
-          </Container>
+          // </Container>
         } />
       </Routes>
     </Router>
@@ -53,3 +52,5 @@ function App() {
 }
 
 export default App;
+
+

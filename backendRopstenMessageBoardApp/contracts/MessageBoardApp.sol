@@ -37,3 +37,5 @@ contract MessageBoardApp {
         return (userMessages[mine][index].from,userMessages[mine][index].message,userMessages[mine][index].value);
     }
 }
+
+
