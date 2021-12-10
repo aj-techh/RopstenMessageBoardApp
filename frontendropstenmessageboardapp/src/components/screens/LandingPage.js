@@ -7,7 +7,9 @@ const LandingPage = (props) => {
     return(
         <Container className="d-grid mx-auto" style={{height: window.screen.availHeight}}>
             <WarningSection />
-            <span>this is landing page</span>
+            {/* <br/> */}
+            {/* <br/> */}
+            {/* <h4>Everything has evolved! Check out <a href="https://nfthub.netlify.com">NFTHub</a> on the Polygon Mainnet</h4> */}
             {/* <Button variant="info" onClick={()=>props.global.authenticate({signingMessage: 'Get Your Messages'})}>Authenticate Yourself!</Button> */}
         </Container>
     )
